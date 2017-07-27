@@ -1,6 +1,7 @@
 
 from django.shortcuts import get_object_or_404, render
 from .models import Post
+from .forms import PostForm
 
 def post_list(request):
 	obj_list = Post.objects.all()
@@ -16,3 +17,16 @@ def post_detail(request, post_id):
 		}
 
 	return render (request, 'post_detail.html', context)
+
+from .forms import PostForm
+
+def post_create(request):
+    form = PostForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+        return redirect("list")
+    context = {
+        "title": "Create",
+        "form": form,
+    }
+    return render(request, 'post_create.html', context)
