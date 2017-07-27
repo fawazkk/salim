@@ -22,5 +22,7 @@ urlpatterns = [
     url(r'^list/$',views.post_list,name='list'),
 	url(r'^update/(?P<post_id>\d+)/$', views.post_update, name="update"),
     url(r'^detail/(?P<post_id>\d+)/$',views.post_detail,name='detail'),
+    url(r'^delete/(?P<post_id>\d+)/$', views.post_delete, name="delete"),
+
 
 ]
