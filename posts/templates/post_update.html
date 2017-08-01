@@ -12,9 +12,9 @@
         {% endfor %}
     </ul>
     {% endif %}
-	
+
     <h1>The Post {{title}} Page</h1>
-    <form action="{% url 'posts:update' post_id=instance.id %}" method="POST">
+    <form action="{% url 'update' slug=instance.slug %}" method="POST" enctype="multipart/form-data">
     {% csrf_token %}
     {{form.as_p}}
     <input type="submit" value="Update Post">
