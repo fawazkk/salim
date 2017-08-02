@@ -1,5 +1,7 @@
 {% extends "base.html" %}
 
+{% load crispy_forms_tags %}
+
 {% block title %}
 {{title}}
 {% endblock title %}
@@ -12,6 +14,15 @@
     {% endif %}
         <h1>{{instance.title}} <small>{{instance.publish}}</small></h1>
         {{instance.content| linebreaks}}Author: {{instance.author.get_full_name}}
+    
+{% include "django_comments.html" %}
     </div>
+
+
+
+    
+	
+
+
 </div>
 {% endblock content %}

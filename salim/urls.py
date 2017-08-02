@@ -25,7 +25,8 @@ urlpatterns = [
 
     url(r'^admin/', admin.site.urls),
     url(r'^posts/', include('posts.urls')),
-    
+    url(r'^comments/', include('django_comments.urls')),
+
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
